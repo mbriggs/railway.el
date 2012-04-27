@@ -33,9 +33,8 @@
   "Railway Mode"
   :lighter " rails"
   :keymap railway-minor-mode-map
-  :group 'railway
-  (if (fboundp evil-normalize-keymaps)
-      (evil-normalize-keymaps)))
+  :group 'railway)
+  
 
 (defun railway-maybe-launch ()
   (interactive)
@@ -45,8 +44,8 @@
           (when (not (string= railway-current-project root))
             (run-hooks 'railway-project-changed-hook)
             (setq railway-current-project root))
-          (run-hooks 'railway-minor-mode-hook)
-          (railway-minor-mode t))
+          (railway-minor-mode t)
+          (run-hooks 'railway-minor-mode-hook))
       (if railway-minor-mode (railway-minor-mode)))))
 
 (defadvice cd (after railway-cd activate)
