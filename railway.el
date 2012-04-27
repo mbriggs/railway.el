@@ -27,7 +27,7 @@
 (defvar railway-minor-mode-map (make-sparse-keymap))
 (defvar railway-minor-mode-hook nil)
 (defvar railway-project-changed-hook nil)
-(defvar railway-current-project)
+(defvar railway-current-project "")
 
 (define-minor-mode railway-minor-mode
   "Railway Mode"
