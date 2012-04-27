@@ -53,3 +53,5 @@
   (railway-maybe-launch))
 
 (add-hook 'after-change-major-mode-hook 'railway-maybe-launch)
+
+(provide 'railway)
