@@ -34,7 +34,7 @@
   :lighter " rails"
   :keymap railway-minor-mode-map
   :group 'railway
-  (if (and evil-normalize-keymaps (fboundp evil-normalize-keymaps))
+  (if (fboundp evil-normalize-keymaps)
       (evil-normalize-keymaps)))
 
 (defun railway-maybe-launch ()
