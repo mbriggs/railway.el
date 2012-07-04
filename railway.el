@@ -53,4 +53,29 @@
 
 (add-hook 'after-change-major-mode-hook 'railway-maybe-launch)
 
+
+(defun railway-create-migration ()
+  (interactive)
+  (let* ((migration-path (concat (railway-root) "/db/migrate/"))
+         (name (read-from-minibuffer "Migration name: "))
+         (class (replace-regexp-in-string "_" "" (capitalize name)))
+         (timestamp (format-time-string "%Y%m%d%H%S" (current-time)))
+         (file-name (concat timestamp "_" name ".rb")))
+
+    (find-file (concat migration-path file-name))
+    (insert (concat "class " class))
+    (newline)
+
+    (insert "def change")
+    (indent-for-tab-command)
+    (newline)
+
+    (insert "end")
+    (indent-for-tab-command)
+    (newline)
+
+    (insert "end")
+    (indent-for-tab-command)))
+
+
 (provide 'railway)
